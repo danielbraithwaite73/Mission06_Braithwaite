@@ -1,4 +1,4 @@
-namespace mission6assignment.Models
+namespace Mission06_Braithwaite.Models
 {
     public class ErrorViewModel
     {
