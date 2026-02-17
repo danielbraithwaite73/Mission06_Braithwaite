@@ -29,7 +29,7 @@ namespace Mission06_Braithwaite.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost] // Sets up the form method to accept the data from the form and add it to the database
         public IActionResult Form(Application response)
         {
             if (ModelState.IsValid)
@@ -44,7 +44,6 @@ namespace Mission06_Braithwaite.Controllers
             }
 
             // If validation fails, return the Form view with the current data
-            // This is what prevents the JSON screen from appearing
             return View("Form", response);
         }
 

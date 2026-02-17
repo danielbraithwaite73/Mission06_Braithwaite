@@ -13,7 +13,7 @@ public class Application
     [Required(ErrorMessage = "The Movie Title is required.")]
     public string title { get; set; }
 
-    // Range prevents negative years. You can set the max to the current year.
+    // Range prevents negative years.
     [Required(ErrorMessage = "Please enter a year.")]
     [Range(1888, 2026, ErrorMessage = "Please enter a valid year between 1888 and 2026.")]
     public int year { get; set; }
