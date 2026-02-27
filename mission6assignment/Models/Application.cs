@@ -1,35 +1,38 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Mission06_Braithwaite.Models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public class Application
 {
     [Key]
     [Required]
-    public int applicationid { get; set; }
+    public int MovieId { get; set; }
 
-    // Adding [Required] with a custom message ensures C# doesn't pass a null/empty string
-    [Required(ErrorMessage = "Please enter a category.")]
-    public string category { get; set; }
+    [ForeignKey("CategoryId")] // Connections point to the Category table.
+    public int? CategoryId { get; set; }
 
+    public Category? Category { get; set; }
+
+    // Adding [Required] with a custom message ensures C# doesn't pass a null/empty string.
     [Required(ErrorMessage = "The Movie Title is required.")]
-    public string title { get; set; }
+    public string Title { get; set; }
 
-    // Range prevents negative years.
+    // Range prevents unrealistic years.
     [Required(ErrorMessage = "Please enter a year.")]
     [Range(1888, 2026, ErrorMessage = "Please enter a valid year between 1888 and 2026.")]
-    public int year { get; set; }
+    public int Year { get; set; }
 
-    [Required(ErrorMessage = "Director is required.")]
-    public string director { get; set; }
+    public string? Director { get; set; }
 
-    [Required(ErrorMessage = "Please select a rating.")]
-    public string rating { get; set; }
+    public string? Rating { get; set; }
 
     // Booleans are inherently required (true/false), so no [Required] needed here.
-    public bool edited { get; set; }
+    public bool Edited { get; set; }
 
-    // Nullable string (string?) is correct for optional fields.
-    public string? lentto { get; set; }
+    public string? LentTo { get; set; }
+    
+    public bool CopiedToPlex { get; set; }
 
     [MaxLength(25, ErrorMessage = "Notes must be 25 characters or less.")]
-    public string? notes { get; set; }
+    public string? Notes { get; set; }
 }

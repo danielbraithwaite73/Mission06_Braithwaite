@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Movie List";
+}
+@model List<Application>
+
+<table class="table table-bordered">
+    <thead class="fw-bold">
+        <tr>
+            <td>Category</td>
+            <td>Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Edited</td>
+            <td>Lent To</td>
+            <td>Copied to Plex</td>
+            <td>Notes</td>
+        </tr>
+    </thead>
+    @* Iterate through the items pulled from the database to dispaly them *@
+    @foreach (Application application in Model) 
+    {
+        <tbody>
+            <tr>
+                <td>@application.Category?.CategoryName</td>
+                <td>@application.Title</td>
+                <td>@application.Year</td>
+                <td>@application.Director</td>
+                <td>@application.Rating</td>
+                <td>@application.Edited</td>
+                <td>@application.LentTo</td>
+                <td>@application.CopiedToPlex</td>
+                <td>@application.Notes</td>
+               
+
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@application.MovieId">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@application.MovieId">Delete</a></td>
+            </tr>
+        </tbody>
+    }
+</table>
