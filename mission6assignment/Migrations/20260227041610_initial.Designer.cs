@@ -10,8 +10,8 @@ using Mission06_Braithwaite.Models;
 namespace Mission06_Braithwaite.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20260217040052_Initial")]
-    partial class Initial
+    [Migration("20260227041610_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,40 +21,40 @@ namespace Mission06_Braithwaite.Migrations
 
             modelBuilder.Entity("Application", b =>
                 {
-                    b.Property<int>("applicationid")
+                    b.Property<int>("ApplicationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("category")
+                    b.Property<string>("Category")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("director")
+                    b.Property<string>("Director")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("edited")
+                    b.Property<bool>("Edited")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("lentto")
+                    b.Property<string>("LentTo")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("notes")
+                    b.Property<string>("Notes")
                         .HasMaxLength(25)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("rating")
+                    b.Property<string>("Rating")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("title")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("year")
+                    b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("applicationid");
+                    b.HasKey("ApplicationId");
 
                     b.ToTable("Movies");
                 });
